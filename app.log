@@ -1,0 +1,14 @@
+2019-02-05 15:02:03,479 [INFO] - TestApi:Started update for: 840=>980
+2019-02-05 15:02:03,482 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
+2019-02-05 15:02:03,666 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
+2019-02-05 15:02:03,666 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-05 15:02:50,192 [INFO] - TestApi:Started update for: 840=>980
+2019-02-05 15:02:50,196 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
+2019-02-05 15:02:50,448 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
+2019-02-05 15:02:50,449 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-05 15:05:50,257 [INFO] - TestApi:Started update for: 840=>980
+2019-02-05 15:05:50,446 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-05 15:07:01,753 [INFO] - TestApi:Started update for: 840=>980
+2019-02-05 15:07:01,756 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
+2019-02-05 15:07:01,942 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
+2019-02-05 15:07:01,943 [INFO] - TestApi:Finished update for: 840=>980
