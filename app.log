@@ -1,14 +1,918 @@
-2019-02-05 15:02:03,479 [INFO] - TestApi:Started update for: 840=>980
-2019-02-05 15:02:03,482 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
-2019-02-05 15:02:03,666 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
-2019-02-05 15:02:03,666 [INFO] - TestApi:Finished update for: 840=>980
-2019-02-05 15:02:50,192 [INFO] - TestApi:Started update for: 840=>980
-2019-02-05 15:02:50,196 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
-2019-02-05 15:02:50,448 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
-2019-02-05 15:02:50,449 [INFO] - TestApi:Finished update for: 840=>980
-2019-02-05 15:05:50,257 [INFO] - TestApi:Started update for: 840=>980
-2019-02-05 15:05:50,446 [INFO] - TestApi:Finished update for: 840=>980
-2019-02-05 15:07:01,753 [INFO] - TestApi:Started update for: 840=>980
-2019-02-05 15:07:01,756 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
-2019-02-05 15:07:01,942 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
-2019-02-05 15:07:01,943 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-06 11:58:55,726 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 11:58:55,727 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 11:58:55,791 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7f8ca2d31c50>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f8ca2d31c50>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 46, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 60, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f8ca2d31c50>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 11:58:59,136 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 11:58:59,137 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 11:58:59,735 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 11:58:59,737 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 11:58:59,917 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 11:58:59,917 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 11:59:02,443 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 11:59:02,444 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 11:59:03,060 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91544.21885407', 'volume': '141.47739943', 'change': '-65.80016285'}, 'timestamp': 1549447141, 'success': True, 'error': ''}
+2019-02-06 11:59:03,233 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91544.21885407
+2019-02-06 11:59:03,233 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91544.21885407
+2019-02-06 11:59:05,666 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 11:59:05,666 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 11:59:08,252 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3225.3134', 'sale': '3564.8200'}]
+2019-02-06 11:59:08,433 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3564.82
+2019-02-06 11:59:08,434 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3564.82
+2019-02-06 11:59:10,916 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 11:59:10,917 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 11:59:11,094 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'sale': '30.0'}]
+2019-02-06 11:59:11,267 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 30.0
+2019-02-06 11:59:11,268 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 30.0
+2019-02-06 11:59:13,675 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 11:59:13,676 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 11:59:14,303 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3225.3134', 'sale': '3564.8200'}]
+2019-02-06 11:59:14,475 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 11:59:14,476 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 11:59:26,628 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 11:59:26,628 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 11:59:27,837 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 11:59:27,838 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 11:59:28,301 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 11:59:28,302 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 11:59:30,714 [INFO] - TestApi:Started update for: 840=>980
+2019-02-06 11:59:30,719 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
+2019-02-06 11:59:30,902 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
+2019-02-06 11:59:30,902 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-06 12:10:28,935 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:10:28,935 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:10:30,248 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3224.4029', 'sale': '3563.8137'}]
+2019-02-06 12:10:30,463 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 12:10:30,463 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 12:10:32,812 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 12:10:32,813 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 12:10:33,523 [ERROR] - CbrApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 354, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/lib/python3.7/http/client.py", line 1229, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1275, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1224, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1016, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 956, in send
+    self.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 181, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPConnection object at 0x7f0fcde9abe0>, 'Connection to www.cbr.ru timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='www.cbr.ru', port=80): Max retries exceeded with url: /scripts/XML_daily.asp (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f0fcde9abe0>, 'Connection to www.cbr.ru timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='www.cbr.ru', port=80): Max retries exceeded with url: /scripts/XML_daily.asp (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f0fcde9abe0>, 'Connection to www.cbr.ru timed out. (connect timeout=0.001)'))
+2019-02-06 12:10:36,207 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 12:10:36,207 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 12:10:36,667 [ERROR] - CryptonatorApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7f0fcde81c88>, 'Connection to api.cryptonator.com timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.cryptonator.com', port=443): Max retries exceeded with url: /api/ticker/btc-uah (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f0fcde81c88>, 'Connection to api.cryptonator.com timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.cryptonator.com', port=443): Max retries exceeded with url: /api/ticker/btc-uah (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f0fcde81c88>, 'Connection to api.cryptonator.com timed out. (connect timeout=0.001)'))
+2019-02-06 12:10:39,662 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 12:10:39,663 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 12:10:43,065 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3224.4029', 'sale': '3563.8137'}]
+2019-02-06 12:10:43,238 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3563.8137
+2019-02-06 12:10:43,239 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3563.8137
+2019-02-06 12:10:45,839 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:10:45,840 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:10:47,032 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3224.4029', 'sale': '3563.8137'}]
+2019-02-06 12:10:47,205 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 12:10:47,206 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 12:10:49,729 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:10:49,729 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:10:51,916 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3224.4029', 'sale': '3563.8137'}]
+2019-02-06 12:10:52,105 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 12:10:52,106 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 12:11:23,583 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:11:23,584 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:11:23,691 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb9b7ebeef0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb9b7ebeef0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fb9b7ebeef0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 12:11:26,559 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 12:11:26,559 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 12:11:28,276 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 12:11:28,276 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 12:11:28,466 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 12:11:28,466 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 12:11:30,943 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 12:11:30,944 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 12:11:35,893 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91562.67450033', 'volume': '140.61096180', 'change': '0.00000000'}, 'timestamp': 1549447862, 'success': True, 'error': ''}
+2019-02-06 12:11:36,074 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91562.67450033
+2019-02-06 12:11:36,074 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91562.67450033
+2019-02-06 12:11:38,357 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 12:11:38,358 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 12:11:40,001 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3224.4029', 'sale': '3563.8137'}]
+2019-02-06 12:11:40,191 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3563.8137
+2019-02-06 12:11:40,191 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3563.8137
+2019-02-06 12:11:42,903 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:11:42,903 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:11:46,343 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3223.9010', 'sale': '3563.2590'}]
+2019-02-06 12:11:46,541 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 12:11:46,542 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 12:11:49,061 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:11:49,061 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:11:50,993 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3223.9010', 'sale': '3563.2590'}]
+2019-02-06 12:11:51,183 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 12:11:51,183 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 12:16:10,550 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 12:16:10,550 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 12:16:12,023 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 12:16:12,024 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 12:16:12,221 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 12:16:12,221 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 12:16:14,760 [INFO] - TestApi:Started update for: 840=>980
+2019-02-06 12:16:14,765 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:16:14,955 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
+2019-02-06 12:16:14,955 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-06 12:22:44,721 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:22:44,722 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:22:46,115 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7f7162d4eeb8>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f7162d4eeb8>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f7162d4eeb8>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 12:22:49,029 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 12:22:49,029 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 12:22:50,961 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 12:22:50,961 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 12:22:51,150 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 12:22:51,151 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 12:22:53,712 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 12:22:53,712 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 12:22:54,219 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91836.35889126', 'volume': '140.27954835', 'change': '273.68439093'}, 'timestamp': 1549448522, 'success': True, 'error': ''}
+2019-02-06 12:22:54,409 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91836.35889126
+2019-02-06 12:22:54,409 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91836.35889126
+2019-02-06 12:22:56,868 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 12:22:56,869 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 12:23:01,470 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3219.7210', 'sale': '3558.6390'}]
+2019-02-06 12:23:01,651 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3558.639
+2019-02-06 12:23:01,651 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3558.639
+2019-02-06 12:23:04,392 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:23:04,393 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:23:05,061 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3219.7210', 'sale': '3558.6390'}]
+2019-02-06 12:23:05,243 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 12:23:05,243 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 12:23:07,802 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 12:23:07,803 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 12:23:08,520 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3219.7210', 'sale': '3558.6390'}]
+2019-02-06 12:23:08,701 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 12:23:08,702 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:00:17,607 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:00:17,607 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:00:17,694 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7efe89fcffd0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7efe89fcffd0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7efe89fcffd0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 13:00:20,491 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:00:20,491 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:00:21,791 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:00:21,791 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:00:21,980 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:00:21,981 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:00:24,292 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 13:00:24,293 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 13:00:28,347 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 13:00:28,348 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 13:00:29,633 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.4839', 'sale': '3561.6927'}]
+2019-02-06 13:00:29,839 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3561.6927
+2019-02-06 13:00:29,840 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3561.6927
+2019-02-06 13:00:32,447 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:00:32,448 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:00:33,116 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.4839', 'sale': '3561.6927'}]
+2019-02-06 13:00:33,289 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:00:33,290 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:00:35,896 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:00:35,897 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:00:38,591 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.4839', 'sale': '3561.6927'}]
+2019-02-06 13:00:38,798 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:00:38,799 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:06:02,435 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:06:02,435 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:06:03,032 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd141bedfd0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd141bedfd0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fd141bedfd0>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 13:06:06,180 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:06:06,180 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:06:07,407 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:06:07,407 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:06:07,605 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:06:07,605 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:06:10,043 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 13:06:10,043 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 13:06:11,465 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91416.45567191', 'volume': '140.61863733', 'change': '-146.21882842'}, 'timestamp': 1549451161, 'success': True, 'error': ''}
+2019-02-06 13:06:11,655 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91416.45567191
+2019-02-06 13:06:11,656 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91416.45567191
+2019-02-06 13:06:14,180 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 13:06:14,181 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 13:06:16,624 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.6406', 'sale': '3561.8660'}]
+2019-02-06 13:06:16,813 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3561.866
+2019-02-06 13:06:16,814 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3561.866
+2019-02-06 13:06:19,375 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:06:19,376 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:06:21,649 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.6406', 'sale': '3561.8660'}]
+2019-02-06 13:06:21,839 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:06:21,840 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:06:24,329 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:06:24,329 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:06:25,049 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.6406', 'sale': '3561.8660'}]
+2019-02-06 13:06:25,231 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:06:25,232 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:07:37,246 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:07:37,247 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:07:37,290 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7f6772646048>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f6772646048>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f6772646048>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 13:07:40,201 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:07:40,202 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:07:40,694 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:07:40,695 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:07:40,928 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:07:40,928 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:07:43,421 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 13:07:43,422 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 13:07:45,071 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91416.97721381', 'volume': '140.56295033', 'change': '-145.69728652'}, 'timestamp': 1549451221, 'success': True, 'error': ''}
+2019-02-06 13:07:45,253 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91416.97721381
+2019-02-06 13:07:45,254 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91416.97721381
+2019-02-06 13:07:47,717 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 13:07:47,717 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 13:07:48,722 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.6406', 'sale': '3561.8660'}]
+2019-02-06 13:07:48,911 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3561.866
+2019-02-06 13:07:48,912 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3561.866
+2019-02-06 13:07:51,315 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:07:51,316 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:07:52,789 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.6406', 'sale': '3561.8660'}]
+2019-02-06 13:07:52,979 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:07:52,980 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:07:55,411 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:07:55,412 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:07:56,072 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.6406', 'sale': '3561.8660'}]
+2019-02-06 13:07:56,254 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:07:56,255 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:10:45,705 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:10:45,705 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:10:46,842 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3221.7350', 'sale': '3560.8650'}]
+2019-02-06 13:10:47,148 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:10:47,149 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:11:36,980 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:11:36,980 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:11:46,954 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3221.7350', 'sale': '3560.8650'}]
+2019-02-06 13:11:47,144 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:11:47,145 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:12:17,726 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:12:17,726 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:12:19,073 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:12:19,254 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:12:19,255 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:12:58,737 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:12:58,738 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:12:59,426 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:12:59,615 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:12:59,616 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:13:12,621 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:13:12,622 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:13:13,183 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7f3b0859ef60>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f3b0859ef60>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f3b0859ef60>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 13:13:15,926 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:13:15,927 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:13:16,802 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:13:16,803 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:13:16,991 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:13:16,992 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:13:19,394 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 13:13:19,394 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 13:13:20,427 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91855.36458615', 'volume': '140.34572174', 'change': '216.47255904'}, 'timestamp': 1549451582, 'success': True, 'error': ''}
+2019-02-06 13:13:20,608 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91855.36458615
+2019-02-06 13:13:20,609 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91855.36458615
+2019-02-06 13:13:23,000 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 13:13:23,000 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 13:13:25,202 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:13:25,392 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3559.8903
+2019-02-06 13:13:25,393 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3559.8903
+2019-02-06 13:13:27,800 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:13:27,801 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:13:28,477 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:13:28,667 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:13:28,668 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:13:31,359 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:13:31,360 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:13:33,069 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:13:33,250 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:13:33,251 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:14:07,923 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:14:07,923 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:14:07,971 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7fa4fdbbaf28>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fa4fdbbaf28>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7fa4fdbbaf28>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 13:14:10,736 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:14:10,737 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:14:15,831 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:14:15,831 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:14:16,020 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:14:16,022 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:14:18,539 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 13:14:18,539 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 13:14:22,597 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91853.43373085', 'volume': '139.45842527', 'change': '214.54170374'}, 'timestamp': 1549451641, 'success': True, 'error': ''}
+2019-02-06 13:14:22,787 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91853.43373085
+2019-02-06 13:14:22,788 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91853.43373085
+2019-02-06 13:14:25,154 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 13:14:25,155 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 13:14:26,031 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:14:26,271 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3559.8903
+2019-02-06 13:14:26,271 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3559.8903
+2019-02-06 13:14:28,729 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:14:28,729 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:14:30,273 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:14:30,454 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:14:30,455 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:14:33,030 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:14:33,031 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:14:33,848 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3220.8531', 'sale': '3559.8903'}]
+2019-02-06 13:14:34,054 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:14:34,054 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:19:34,620 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:19:34,621 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:19:35,709 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:19:35,710 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:19:35,899 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:19:35,899 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:19:38,362 [INFO] - TestApi:Started update for: 840=>980
+2019-02-06 13:19:38,365 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:19:38,540 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
+2019-02-06 13:19:38,541 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-06 13:40:33,276 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:40:33,276 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:40:34,540 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:40:34,541 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:40:34,729 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:40:34,730 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:40:37,143 [INFO] - TestApi:Started update for: 840=>980
+2019-02-06 13:40:37,147 [DEBUG] - TestApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:40:37,338 [DEBUG] - TestApi:rate after: XRate(840=>980): 1.01
+2019-02-06 13:40:37,338 [INFO] - TestApi:Finished update for: 840=>980
+2019-02-06 13:40:39,714 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:40:39,714 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:40:42,173 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.2338', 'sale': '3561.4163'}]
+2019-02-06 13:40:42,363 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:40:42,364 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:40:55,531 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:40:55,532 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:40:55,630 [ERROR] - PrivatApi:Error during request sending
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 159, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 80, in create_connection
+    raise err
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/connection.py", line 70, in create_connection
+    sock.connect(sa)
+socket.timeout: timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 600, in urlopen
+    chunked=chunked)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 343, in _make_request
+    self._validate_conn(conn)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 839, in _validate_conn
+    conn.connect()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 301, in connect
+    conn = self._new_conn()
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connection.py", line 164, in _new_conn
+    (self.host, self.timeout))
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.VerifiedHTTPSConnection object at 0x7f1efe29feb8>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 449, in send
+    timeout=timeout
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/connectionpool.py", line 638, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/urllib3/util/retry.py", line 398, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f1efe29feb8>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 45, in _send_request
+    response = self._send(method=method, url=url, headers=headers, data=data)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/web_currency_rate/api/__init__.py", line 59, in _send
+    return requests.request(method=method, url=url, headers=headers, data=data, timeout=HTTP_TIMEOUT)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "/mnt/48D443B7D443A5D2/Users/Melnyk.D/OneDrive/MyProjects/ITVDN-PythonPractice/env/lib/python3.7/site-packages/requests/adapters.py", line 504, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='api.privatbank.ua', port=443): Max retries exceeded with url: /p24api/pubinfo?exchange&json&coursid=11 (Caused by ConnectTimeoutError(<urllib3.connection.VerifiedHTTPSConnection object at 0x7f1efe29feb8>, 'Connection to api.privatbank.ua timed out. (connect timeout=0.001)'))
+2019-02-06 13:40:58,463 [INFO] - CbrApi:Started update for: XRate(840=>643): 1.0
+2019-02-06 13:40:58,464 [DEBUG] - CbrApi:rate before: XRate(840=>643): 1.0
+2019-02-06 13:40:59,166 [DEBUG] - CbrApi:response.encoding: windows-1251
+2019-02-06 13:40:59,167 [DEBUG] - CbrApi:response.text: <?xml version="1.0" encoding="windows-1251"?><ValCurs Date="07.02.2019" name="Foreign Currency Market"><Valute ID="R01010"><NumCode>036</NumCode><CharCode>AUD</CharCode><Nominal>1</Nominal><Name>Австралийский доллар</Name><Value>46,8414</Value></Valute><Valute ID="R01020A"><NumCode>944</NumCode><CharCode>AZN</CharCode><Nominal>1</Nominal><Name>Азербайджанский манат</Name><Value>38,7083</Value></Valute><Valute ID="R01035"><NumCode>826</NumCode><CharCode>GBP</CharCode><Nominal>1</Nominal><Name>Фунт стерлингов Соединенного королевства</Name><Value>85,0671</Value></Valute><Valute ID="R01060"><NumCode>051</NumCode><CharCode>AMD</CharCode><Nominal>100</Nominal><Name>Армянских драмов</Name><Value>13,4567</Value></Valute><Valute ID="R01090B"><NumCode>933</NumCode><CharCode>BYN</CharCode><Nominal>1</Nominal><Name>Белорусский рубль</Name><Value>30,4021</Value></Valute><Valute ID="R01100"><NumCode>975</NumCode><CharCode>BGN</CharCode><Nominal>1</Nominal><Name>Болгарский лев</Name><Value>38,2461</Value></Valute><Valute ID="R01115"><NumCode>986</NumCode><CharCode>BRL</CharCode><Nominal>1</Nominal><Name>Бразильский реал</Name><Value>17,8938</Value></Valute><Valute ID="R01135"><NumCode>348</NumCode><CharCode>HUF</CharCode><Nominal>100</Nominal><Name>Венгерских форинтов</Name><Value>23,4816</Value></Valute><Valute ID="R01200"><NumCode>344</NumCode><CharCode>HKD</CharCode><Nominal>10</Nominal><Name>Гонконгских долларов</Name><Value>83,7044</Value></Valute><Valute ID="R01215"><NumCode>208</NumCode><CharCode>DKK</CharCode><Nominal>1</Nominal><Name>Датская крона</Name><Value>10,0199</Value></Valute><Valute ID="R01235"><NumCode>840</NumCode><CharCode>USD</CharCode><Nominal>1</Nominal><Name>Доллар США</Name><Value>65,6686</Value></Valute><Valute ID="R01239"><NumCode>978</NumCode><CharCode>EUR</CharCode><Nominal>1</Nominal><Name>Евро</Name><Value>74,7703</Value></Valute><Valute ID="R01270"><NumCode>356</NumCode><CharCode>INR</CharCode><Nominal>100</Nominal><Name>Индийских рупий</Name><Value>91,6436</Value></Valute><Valute ID="R01335"><NumCode>398</NumCode><CharCode>KZT</CharCode><Nominal>100</Nominal><Name>Казахстанских тенге</Name><Value>17,4058</Value></Valute><Valute ID="R01350"><NumCode>124</NumCode><CharCode>CAD</CharCode><Nominal>1</Nominal><Name>Канадский доллар</Name><Value>49,7904</Value></Valute><Valute ID="R01370"><NumCode>417</NumCode><CharCode>KGS</CharCode><Nominal>100</Nominal><Name>Киргизских сомов</Name><Value>94,1081</Value></Valute><Valute ID="R01375"><NumCode>156</NumCode><CharCode>CNY</CharCode><Nominal>10</Nominal><Name>Китайских юаней</Name><Value>97,3618</Value></Valute><Valute ID="R01500"><NumCode>498</NumCode><CharCode>MDL</CharCode><Nominal>10</Nominal><Name>Молдавских леев</Name><Value>38,3915</Value></Valute><Valute ID="R01535"><NumCode>578</NumCode><CharCode>NOK</CharCode><Nominal>10</Nominal><Name>Норвежских крон</Name><Value>77,2127</Value></Valute><Valute ID="R01565"><NumCode>985</NumCode><CharCode>PLN</CharCode><Nominal>1</Nominal><Name>Польский злотый</Name><Value>17,4345</Value></Valute><Valute ID="R01585F"><NumCode>946</NumCode><CharCode>RON</CharCode><Nominal>1</Nominal><Name>Румынский лей</Name><Value>15,7725</Value></Valute><Valute ID="R01589"><NumCode>960</NumCode><CharCode>XDR</CharCode><Nominal>1</Nominal><Name>СДР (специальные права заимствования)</Name><Value>91,5841</Value></Valute><Valute ID="R01625"><NumCode>702</NumCode><CharCode>SGD</CharCode><Nominal>1</Nominal><Name>Сингапурский доллар</Name><Value>48,5105</Value></Valute><Valute ID="R01670"><NumCode>972</NumCode><CharCode>TJS</CharCode><Nominal>10</Nominal><Name>Таджикских сомони</Name><Value>69,6380</Value></Valute><Valute ID="R01700J"><NumCode>949</NumCode><CharCode>TRY</CharCode><Nominal>1</Nominal><Name>Турецкая лира</Name><Value>12,5985</Value></Valute><Valute ID="R01710A"><NumCode>934</NumCode><CharCode>TMT</CharCode><Nominal>1</Nominal><Name>Новый туркменский манат</Name><Value>18,7893</Value></Valute><Valute ID="R01717"><NumCode>860</NumCode><CharCode>UZS</CharCode><Nominal>10000</Nominal><Name>Узбекских сумов</Name><Value>78,3563</Value></Valute><Valute ID="R01720"><NumCode>980</NumCode><CharCode>UAH</CharCode><Nominal>10</Nominal><Name>Украинских гривен</Name><Value>24,3458</Value></Valute><Valute ID="R01760"><NumCode>203</NumCode><CharCode>CZK</CharCode><Nominal>10</Nominal><Name>Чешских крон</Name><Value>29,0775</Value></Valute><Valute ID="R01770"><NumCode>752</NumCode><CharCode>SEK</CharCode><Nominal>10</Nominal><Name>Шведских крон</Name><Value>71,7823</Value></Valute><Valute ID="R01775"><NumCode>756</NumCode><CharCode>CHF</CharCode><Nominal>1</Nominal><Name>Швейцарский франк</Name><Value>65,6096</Value></Valute><Valute ID="R01810"><NumCode>710</NumCode><CharCode>ZAR</CharCode><Nominal>10</Nominal><Name>Южноафриканских рэндов</Name><Value>48,8170</Value></Valute><Valute ID="R01815"><NumCode>410</NumCode><CharCode>KRW</CharCode><Nominal>1000</Nominal><Name>Вон Республики Корея</Name><Value>58,6510</Value></Valute><Valute ID="R01820"><NumCode>392</NumCode><CharCode>JPY</CharCode><Nominal>100</Nominal><Name>Японских иен</Name><Value>59,8811</Value></Valute></ValCurs>
+2019-02-06 13:40:59,363 [DEBUG] - CbrApi:rate after: XRate(840=>643): 65.6686
+2019-02-06 13:40:59,364 [INFO] - CbrApi:Finished update for: XRate(840=>643): 65.6686
+2019-02-06 13:41:01,789 [INFO] - CryptonatorApi:Started update for: XRate(1000=>980): 1.0
+2019-02-06 13:41:01,789 [DEBUG] - CryptonatorApi:rate before: XRate(1000=>980): 1.0
+2019-02-06 13:41:03,616 [DEBUG] - CryptonatorApi:Cryptonator response: {'ticker': {'base': 'BTC', 'target': 'UAH', 'price': '91685.64944593', 'volume': '140.04291374', 'change': '46.75741882'}, 'timestamp': 1549453261, 'success': True, 'error': ''}
+2019-02-06 13:41:03,805 [DEBUG] - CryptonatorApi:rate after: XRate(1000=>980): 91685.64944593
+2019-02-06 13:41:03,805 [INFO] - CryptonatorApi:Finished update for: XRate(1000=>980): 91685.64944593
+2019-02-06 13:41:06,180 [INFO] - PrivatApi:Started update for: XRate(1000=>840): 1.0
+2019-02-06 13:41:06,181 [DEBUG] - PrivatApi:rate before: XRate(1000=>840): 1.0
+2019-02-06 13:41:07,773 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.2338', 'sale': '3561.4163'}]
+2019-02-06 13:41:07,955 [DEBUG] - PrivatApi:rate after: XRate(1000=>840): 3561.4163
+2019-02-06 13:41:07,955 [INFO] - PrivatApi:Finished update for: XRate(1000=>840): 3561.4163
+2019-02-06 13:41:10,388 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:41:10,389 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:41:11,557 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.2338', 'sale': '3561.4163'}]
+2019-02-06 13:41:11,763 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:41:11,764 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
+2019-02-06 13:41:14,453 [INFO] - PrivatApi:Started update for: XRate(840=>980): 1.0
+2019-02-06 13:41:14,453 [DEBUG] - PrivatApi:rate before: XRate(840=>980): 1.0
+2019-02-06 13:41:19,599 [DEBUG] - PrivatApi:Privat response: [{'ccy': 'USD', 'base_ccy': 'UAH', 'buy': '26.85000', 'sale': '27.17391'}, {'ccy': 'EUR', 'base_ccy': 'UAH', 'buy': '30.45000', 'sale': '31.05590'}, {'ccy': 'RUR', 'base_ccy': 'UAH', 'buy': '0.39000', 'sale': '0.41501'}, {'ccy': 'BTC', 'base_ccy': 'USD', 'buy': '3222.2338', 'sale': '3561.4163'}]
+2019-02-06 13:41:19,805 [DEBUG] - PrivatApi:rate after: XRate(840=>980): 27.17391
+2019-02-06 13:41:19,806 [INFO] - PrivatApi:Finished update for: XRate(840=>980): 27.17391
